@@ -1,0 +1,38 @@
+/*
+ * ARCHIPELAGO — tema Tailwind v4 compartilhado por todos os MFEs.
+ *
+ * `@theme` gera ao mesmo tempo:
+ *   - utilitários (bg-sea, text-ink, font-display...)
+ *   - CSS custom properties (--color-sea...) usáveis em CSS puro.
+ *
+ * Todo MFE importa ESTE arquivo no próprio CSS. Como os valores são idênticos,
+ * se dois MFEs emitirem `.bg-sea`, a regra é a mesma — não há conflito.
+ * Mudar um token aqui = mudar a plataforma inteira no próximo build de cada MFE.
+ *
+ * Paleta "carta náutica": névoa marinha, tinta naval, petróleo, ocre.
+ */
+@theme {
+  --font-display: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Schibsted Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
+
+  --color-mist: #eef2f0;
+  --color-surface: #ffffff;
+  --color-line: #c9d4d1;
+  --color-ink: #14232b;
+  --color-ink-soft: #4a5b63;
+  --color-sea: #1f6f78;
+  --color-sea-deep: #164f56;
+  --color-sea-wash: #dde9e8;
+  --color-ochre: #b5772b;
+  --color-ochre-wash: #f3e6d2;
+  --color-coral: #c8443a;
+  --color-kelp: #2f7d4f;
+
+  /* Cor de cada "ilha" (time dono) — usada nas fronteiras visuais. */
+  --color-team-shell: #14232b;
+  --color-team-catalog: #1f6f78;
+  --color-team-cart: #b5772b;
+
+  --radius-island: 14px;
+}

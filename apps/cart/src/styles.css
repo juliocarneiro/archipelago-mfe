@@ -1,0 +1,17 @@
+/*
+ * CSS FEDERADO DO CART — vai junto com o módulo exposto ('./App' e './CartBadge').
+ *
+ * Importa só theme + utilities do Tailwind. SEM preflight: um remote não pode
+ * resetar o CSS da página onde está sendo montado.
+ *
+ * Por que não dá conflito com as classes do shell/cart? Todos usam a MESMA
+ * versão do Tailwind e o MESMO tema (@mfe/ui/theme.css), então `.p-4` é
+ * idêntico em qualquer MFE. Se um dia os MFEs precisarem de versões diferentes
+ * do Tailwind, use `prefix(crt)` aqui. Veja docs/06-estilos-e-css.md.
+ */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import '@mfe/ui/theme.css';
+
+@source '../../../packages/ui/src';

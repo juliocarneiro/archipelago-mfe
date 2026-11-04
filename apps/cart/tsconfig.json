@@ -1,0 +1,7 @@
+{
+  "extends": "@mfe/tsconfig/react.json",
+  "compilerOptions": {
+    "types": ["@rsbuild/core/types", "@testing-library/jest-dom/vitest"]
+  },
+  "include": ["src"]
+}

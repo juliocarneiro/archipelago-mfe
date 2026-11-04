@@ -1,0 +1,10 @@
+# Em uma organização real, cada MFE pertence a um time.
+# O GitHub pede review automático do time dono quando um PR toca a pasta dele.
+# Troque os handles abaixo pelos times da sua organização (ex.: @acme/team-catalog).
+
+/apps/shell/        @your-org/platform-team
+/apps/catalog/      @your-org/catalog-team
+/apps/cart/         @your-org/cart-team
+
+# Contratos e design system afetam TODOS os MFEs: exigem review da plataforma.
+/packages/          @your-org/platform-team

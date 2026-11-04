@@ -1,0 +1,20 @@
+/*
+ * Estilos BASE (globais) — só quem é "dono da página" importa:
+ *   - o shell, em produção;
+ *   - cada remote, apenas no modo standalone.
+ * Um remote federado NUNCA importa isto: reset global vindo de um MFE
+ * mudaria a página do vizinho.
+ */
+@layer base {
+  html {
+    background: var(--color-mist);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-sea-wash);
+  }
+}

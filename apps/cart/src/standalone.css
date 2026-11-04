@@ -1,0 +1,5 @@
+/* Só no modo standalone (bootstrap.tsx): aqui o cart É o dono da página. */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/preflight.css' layer(base);
+@import '@mfe/ui/theme.css';
+@import '@mfe/ui/base.css';

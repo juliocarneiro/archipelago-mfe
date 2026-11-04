@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      # Dependências compartilhadas em runtime precisam subir JUNTAS em todos os
+      # MFEs; versões divergentes de React entre host e remote é bug em produção.
+      runtime-shared:
+        patterns: ['react', 'react-dom', 'react-router', '@types/react*']
+      module-federation:
+        patterns: ['@module-federation/*', '@rsbuild/*']
+      tooling:
+        patterns: ['*']
+        exclude-patterns:
+          ['react', 'react-dom', 'react-router', '@module-federation/*', '@rsbuild/*']
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

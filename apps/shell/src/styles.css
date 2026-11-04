@@ -1,0 +1,71 @@
+/*
+ * CSS DO SHELL — o único que importa o Tailwind COMPLETO (com preflight).
+ * O preflight é um reset global; só o dono da página pode aplicá-lo.
+ * Os remotes importam apenas theme + utilities (veja apps/catalog/src/styles.css).
+ */
+@import 'tailwindcss';
+@import '@mfe/ui/theme.css';
+@import '@mfe/ui/base.css';
+
+/* Tailwind v4 só gera classes que encontra no código. Os componentes do
+   design system vivem fora deste app, então apontamos para eles. */
+@source '../../../packages/ui/src';
+
+/*
+ * ASSINATURA VISUAL: "Show boundaries".
+ * Cada remote é montado pelo shell dentro de um <Island data-mfe=...>.
+ * Com <html data-boundaries="on">, cada ilha ganha contorno tracejado na cor
+ * do time dono e uma etiqueta com nome e origem. É a arquitetura, visível.
+ */
+@layer components {
+  [data-mfe] {
+    position: relative;
+    border-radius: var(--radius-island);
+    outline: 2px dashed transparent;
+    outline-offset: var(--island-offset, 8px);
+    transition: outline-color 220ms ease;
+  }
+
+  [data-mfe]::before {
+    content: attr(data-mfe) '  ' attr(data-mfe-origin);
+    position: absolute;
+    z-index: 30;
+    top: calc(var(--island-offset, 8px) * -1 - 11px);
+    left: 14px;
+    padding: 2px 9px;
+    border-radius: 999px;
+    background: var(--island-color);
+    color: white;
+    font: 500 10.5px/1.5 var(--font-mono);
+    letter-spacing: 0.04em;
+    white-space: pre;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(3px);
+    transition:
+      opacity 220ms ease,
+      transform 220ms ease;
+  }
+
+  /* O header está colado no topo da janela: a etiqueta dele vai embaixo. */
+  [data-mfe='shell']::before {
+    top: auto;
+    bottom: -10px;
+  }
+
+  [data-boundaries='on'] [data-mfe] {
+    outline-color: var(--island-color);
+  }
+
+  [data-boundaries='on'] [data-mfe]::before {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-mfe],
+    [data-mfe]::before {
+      transition: none;
+    }
+  }
+}
