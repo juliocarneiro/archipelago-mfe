@@ -50,6 +50,31 @@ test('resilience', async ({ page }) => {
   await page.goto('/catalog');
   await expect(page.getByRole('alert')).toBeVisible();
   await expect(page.getByTestId('cart-count')).toHaveText('3');
+
+  // Anotação só para a imagem: deixa claro que a falha é SIMULADA de propósito.
+  await page.evaluate(() => {
+    const note = document.createElement('div');
+    note.innerHTML =
+      '<strong style="display:block;font:700 19px var(--font-sans);margin-bottom:4px">Simulated outage · this is intentional</strong>' +
+      'Every request to the catalog (localhost:4001) is blocked by the test. ' +
+      'The shell header, sign-in and the cart badge — separate apps — keep working.';
+    Object.assign(note.style, {
+      position: 'fixed',
+      left: '50%',
+      top: '360px',
+      transform: 'translateX(-50%)',
+      maxWidth: '720px',
+      padding: '20px 26px',
+      borderRadius: '14px',
+      background: 'var(--color-ink)',
+      color: 'var(--color-mist)',
+      font: '400 17px/1.5 var(--font-sans)',
+      boxShadow: '0 12px 32px -12px rgb(20 35 43 / 0.5)',
+      zIndex: '100',
+    });
+    document.body.append(note);
+  });
+
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: out('resilience') });
 });

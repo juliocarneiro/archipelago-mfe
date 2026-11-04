@@ -31,9 +31,13 @@ Clone, renomeie, apague os domínios de exemplo e fique com a arquitetura.
 
 > Clique em **Show boundaries** no header para ver qual app é dono de cada parte da página.
 
-| Home                            | Carrinho                            | Catálogo fora do ar, página de pé                      |
-| ------------------------------- | ----------------------------------- | ------------------------------------------------------ |
-| ![Home](./docs/assets/home.png) | ![Carrinho](./docs/assets/cart.png) | ![Catálogo indisponível](./docs/assets/resilience.png) |
+| Home                            | Carrinho                            | Falha simulada: catálogo bloqueado de propósito                                              |
+| ------------------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------- |
+| ![Home](./docs/assets/home.png) | ![Carrinho](./docs/assets/cart.png) | ![Catálogo bloqueado de propósito; o resto da página funciona](./docs/assets/resilience.png) |
+
+A terceira imagem é um **teste de falha, não um bug**: o servidor do catálogo é bloqueado de
+propósito para mostrar que só a área dele falha, enquanto o shell e o carrinho continuam
+funcionando. Faça o teste você mesmo em [docs/07-resiliencia.md](./docs/07-resiliencia.md).
 
 ## Sumário
 

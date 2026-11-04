@@ -30,9 +30,13 @@ Clone it, rename it, delete the demo domains and keep the architecture.
 
 > Press **Show boundaries** in the header to see which app owns each part of the page.
 
-| Home                                 | Cart                                 | Catalog down, page still up                                |
-| ------------------------------------ | ------------------------------------ | ---------------------------------------------------------- |
-| ![Home page](./docs/assets/home.png) | ![Cart page](./docs/assets/cart.png) | ![Catalog unavailable state](./docs/assets/resilience.png) |
+| Home                                 | Cart                                 | Simulated outage: catalog blocked on purpose                                                     |
+| ------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| ![Home page](./docs/assets/home.png) | ![Cart page](./docs/assets/cart.png) | ![Catalog intentionally blocked; the rest of the page still works](./docs/assets/resilience.png) |
+
+The third image is a **failure test, not a bug**: the catalog server is blocked on purpose to show
+that only its area fails while the shell and the cart keep working. Try it yourself in
+[docs/07-resiliencia.md](./docs/07-resiliencia.md).
 
 ## Contents
 
