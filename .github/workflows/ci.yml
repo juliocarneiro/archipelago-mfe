@@ -37,7 +37,7 @@ jobs:
       - run: pnpm lint
       - run: pnpm turbo run typecheck test build --cache-dir=.turbo/cache
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: dist
           path: apps/*/dist
@@ -57,7 +57,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm e2e
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: playwright-report
