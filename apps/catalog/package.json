@@ -23,7 +23,7 @@
     "@mfe/tsconfig": "workspace:*",
     "@module-federation/enhanced": "^2.9.3",
     "@module-federation/rsbuild-plugin": "^2.9.3",
-    "@rsbuild/core": "^2.3.1",
+    "@rsbuild/core": "^2.3.2",
     "@rsbuild/plugin-react": "^2.1.1",
     "@tailwindcss/postcss": "^4.3.4",
     "@testing-library/jest-dom": "^7.0.1",
